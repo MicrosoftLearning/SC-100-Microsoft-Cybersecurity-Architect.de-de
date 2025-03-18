@@ -30,12 +30,15 @@ In diesem Szenario stellen Sie die SIEM SOAR-Lösung basierend auf Microsoft Sen
 
 ## Teil 2: Implementieren der Lösung (optional)
 
+> [!NOTE]
+> Für diesen Teil des Labs ist die Aufgabe, ein Dashboard mit benutzerdefinierten Ansichten für Vorfälle und deren Warnmeldungen zu erstellen (Aufgabe 4 dieser Übung), nicht funktionsfähig, da keine Daten vorhanden sind, auf denen diese Aufgabe basieren könnte. Die Schritte von Vorgang 4 sind nur zu Informationszwecken enthalten. Wenn Sie die Schritte ausführen, werden keine Daten zurückgegeben.
+
 ### Aufgabe 1: Erstellen eines Log Analytics-Arbeitsbereichs
 
 In dieser Aufgabe erstellen Sie einen Log Analytics-Arbeitsbereich, in dem alle Daten gespeichert werden, die Microsoft Sentinel aufnimmt und für seine Erkennungen und Analysen verwendet.
 
 1. Melden Sie sich an der Client 1 VM (LON-SC1) als **lon-sc1\admin** Konto an. Das Passwort sollte von Ihrem Provider für die Übung bereitgestellt werden.
-2. Öffnen Sie **Microsoft Edge**, wählen Sie die Adressleiste, navigieren Sie zu **`https://portal.azure.com`** und melden Sie sich beim Azure-Portal als benutzende Person **User1-*******@LODSUATMCA.onmicrosoft.com** an (wobei ****** Ihre eindeutige, von Ihrem Lab-Hosting-Anbieter bereitgestellte Mandant-ID ist). Das Kennwort des Benutzernden sollte von Ihrem Provider für die Übung bereitgestellt werden.
+2. Öffnen Sie **Microsoft Edge**, wählen Sie die Adressleiste, navigieren Sie zu **`https://portal.azure.com`** und melden Sie sich im Azure-Portal als benutzende Person **Benutzer1-*******@LODSUATMCA.onmicrosoft.com** an (wobei ****** Ihre eindeutige Mandanten-ID ist, die Sie von Ihrem Lab-Hosting-Anbieter erhalten haben). Das Kennwort des Benutzernden sollte von Ihrem Provider für die Übung bereitgestellt werden.
 3. Aktivieren Sie im Dialogfeld Angemeldet bleiben? das Kontrollkästchen Dies nicht mehr anzeigen und wählen Sie dann **Nein**.
 4. Schließen Sie das Dialogfeld zum Speichern des Kennworts von unten, indem Sie Nie wählen, um die Anmeldeinformationen des globalen Admins nicht in Ihrem Browser zu speichern.
 5. Bildschirm Willkommen bei Microsoft Azure abbrechen
@@ -57,14 +60,9 @@ In dieser Aufgabe fügen Sie Sentinel zu dem erstellten Log Analytics-Arbeitsber
 1. Auf der Seite **Microsoft Sentinel** wählen Sie **Erstellen**.
 1. Auf der Seite **Microsoft Sentinel zu einem Arbeitsbereich hinzufügen** sollte der zuvor erstellte Log Analytics-Arbeitsbereich aufgeführt sein.  Wählen Sie **law-sentinel** und wählen Sie dann **Hinzufügen**.
 1. Es kann einige Minuten dauern, um Sentinel zum Arbeitsbereich hinzuzufügen.  Sobald es hinzugefügt wurde, wird die Seite **Microsoft Sentinel | Neuigkeiten und Leitfäden** angezeigt.  Sie werden benachrichtigt, dass die kostenlose Testversion von Microsoft Sentinel aktiviert ist.  Klicken Sie auf **OK**.
-1. Wählen Sie in der Mitte der Seite **Zum Inhaltshub wechseln**.  Alternativ können Sie im linken Bedienfeld die Option **Content Management** erweitern und dann **Inhaltshub** auswählen.
-1. Über das Inhaltshub installieren Sie **Microsoft Sentinel Training Lab**.  Um diese Lösung zu finden, filtern Sie nach **Anbieter = Microsoft** und **Kategorie = Training und Tutorials**. Sobald Sie diese Filter festgelegt und angewendet haben, wird **Microsoft Sentinel Training Lab** aufgelistet. Wählen Sie es aus den Suchergebnissen aus und **Installieren** Sie die Lösung.
-1. Klicken Sie auf **Erstellen**.
-1. Wählen Sie die Ressourcengruppe **rg_eastus_soc** und den Arbeitsbereich **law-sentinel**.
-1. Wählen Sie **Überprüfen und Erstellen** und wählen Sie dann **Erstellen**.
-1. Warten Sie, bis die Lösung erfolgreich installiert wurde.
+1. Wählen Sie in der Mitte der Seite **Zum Inhaltshub wechseln**.  Der Inhaltshub ist der Ort, an dem Sie Lösungen herunterladen würden. Erkunden Sie den Inhaltshub nach Belieben.
 
-Sie haben Sentinel erfolgreich im Log Analytics-Arbeitsbereich bereitgestellt und Daten hinzugefügt. 
+Sie haben Sentinel erfolgreich im Log Analytics-Arbeitsbereich bereitgestellt. 
 
 ### Aufgabe 3 – Einrichten des RBAC
 
@@ -93,7 +91,7 @@ Außerdem benötigt das Netzwerkteam Zugriff auf die Cisco-Umbrella-Protokolle. 
 1. Wählen Sie **Weiter** aus.
 1. Wählen Sie **+Mitglieder auswählen**.
 1. Suchen Sie nach der **`SOC Analysts`**-Gruppe, wählen Sie **SOC-Analysten** aus den Suchergebnissen, drücken Sie **Auswählen** und fügen Sie die Rollenzuweisung hinzu.
-1. Wählen Sie **Überprüfen + zuweisen**.
+1. Wählen Sie **Überprüfen und zuweisen** aus.
 1. Sie wiederholen die Schritte für die Sentinel Contributor-Teilnehmerrolle. Wählen Sie **Hinzufügen** aus und wählen Sie dann in der Dropdown-Liste **Rollenzuweisung hinzufügen** aus.
 1. Suchen Sie nach **`Microsoft Sentinel Contributor`** und wählen Sie die Rolle.
 1. Wählen Sie **Weiter** aus.
@@ -137,6 +135,9 @@ Außerdem benötigt das Netzwerkteam Zugriff auf die Cisco-Umbrella-Protokolle. 
 Sie haben erfolgreich ein rollenbasiertes Zugriffsmodell für die Rollenanforderungen für das Sicherheitsbetriebsteam von Contoso erstellt und eine benutzerdefinierte Rolle für das Netzwerkteam erstellt und die Rolle der spezifischen Tabelle in Ihrem Log Analytics-Arbeitsbereich zugewiesen.
 
 ### Aufgabe 4: Erstellen einer Arbeitsmappe
+
+> [!NOTE]
+> Diese Schritte sind nur zu Informationszwecken enthalten. Wenn Sie die Schritte ausführen, werden keine Daten zurückgegeben.
 
 In dieser Aufgabe erstellen Sie eine Arbeitsmappe, um ein Dashboard mit benutzerdefinierten Ansichten und aktuellen Vorfällen und deren Warnungen zu erhalten.
 
