@@ -53,7 +53,7 @@ Sie haben den Log Analytics-Arbeitsbereich für Ihre Sentinel-Bereitstellung erf
 
 ### Aufgabe 2 – Erstellen von Sentinel
 
-In dieser Aufgabe fügen Sie Sentinel zu dem erstellten Log Analytics-Arbeitsbereich hinzu und fügen Demo-Protokolle hinzu. Da der Demo-Mandant keine vorhandenen Daten im Log Analytics-Arbeitsbereich hat, importieren Sie Demo-Protokolle, um eine bessere Vorstellung von der Funktionsweise von Sentinel zu bekommen.
+In dieser Aufgabe fügen Sie Sentinel zum erstellten Log Analytics-Arbeitsbereich hinzu.
 
 1. Sie sollten immer noch im Azure-Portal angemeldet sein **https://portal.azure.com**.
 1. Geben Sie in der Suchleiste im blauen Banner oben auf der Seite **Microsoft Sentinel** ein und wählen Sie es dann aus den unter Dienste aufgelisteten Suchergebnissen aus.
@@ -67,17 +67,14 @@ Sie haben Sentinel erfolgreich im Log Analytics-Arbeitsbereich bereitgestellt.
 ### Aufgabe 3 – Einrichten des RBAC
 
 Sie müssen den Zugriff auf der Grundlage des Prinzips der geringsten Privilegien sichern und Rollenzuweisungen für die spezifischen Rollenanforderungen erstellen. In Ihrer bevorstehenden produktiven Bereitstellung gibt es zwei verschiedene Rollen im Security Operation Center.
-Außerdem benötigt das Netzwerkteam Zugriff auf die Cisco-Umbrella-Protokolle. Sie müssen sicherstellen, dass das Netzwerkteam nur auf diese Protokolle zugreifen kann.
+
 
 #### Erforderliche Berechtigungen
 
 | Rolle | Berechtigungen |
 |---|---|
-| Sicherheitsanalyst | Anzeigen von Daten, Vorfällen, Arbeitsbüchern und andere Sentinel-Ressourcen |
-| | Zuweisen/Schließen von Vorfällen |
-| Security Engineer | Erstellen und Bearbeiten von Arbeitsmappen und Analyseregeln |
-| | Installieren und Aktualisieren von Lösungen aus dem Inhaltshub |
-| Netzwerkteam | Leseberechtigungen für Gruppe: **NOC** in Tabelle: **Cisco_Umbrella_dns_CL**|
+| Sicherheitsanalyst | Anzeigen von Daten, Vorfällen, Workbooks und anderen Sentinel-Ressourcen und Zuweisen/Entfernen von Vorfällen. |
+| Security Engineer | Erstellen und Bearbeiten von Workbooks und Analyseregeln. Installieren und Aktualisieren von Lösungen über den Inhaltshub. |
 
 ---
 
@@ -99,40 +96,8 @@ Außerdem benötigt das Netzwerkteam Zugriff auf die Cisco-Umbrella-Protokolle. 
 1. Suchen Sie auf dem Blatt **Mitglieder auswählen** nach der Gruppe **SOC-Techniker**.  Wählen Sie aus den Suchergebnissen **SOC-Techniker** und drücken Sie **Auswählen**, um die Rollenzuweisung hinzuzufügen.
 1. Wählen Sie erneut **Überprüfen und zuweisen** aus.
 1. Wählen Sie die Registerkarte **Rollenzuweisungen**. Bestätigen Sie, dass die Rollenzuweisungen festgelegt sind.
-1. Jetzt fügen Sie eine benutzerdefinierte Rolle hinzu. Wählen Sie **Hinzufügen** aus und wählen Sie dann aus der Dropdown-Liste **Benutzerdefinierte Rolle hinzufügen** aus.
-1. Nennen Sie es **`NOC-CiscoUmbrellaCL-Read`**.
-1. Wählen Sie für die **Grundberechtigung** die Option **Von vorne beginnen**.
-1. Wählen Sie **Weiter** aus.
-1. Wählen Sie auf der Registerkarte **Berechtigungen** die Option **Berechtigung hinzufügen** aus.
-1. Suchen Sie nach **`Microsoft.OperationalInsights`**, wählen Sie die Karte **Azure Protokollanalyse** aus.
-1. Fügen Sie die folgenden Berechtigungen hinzu.
-    - Microsoft.OperationalInsights/workspaces
-        - Read : Get Workspace
-        - Other : Search Workspace Data
 
-    - Microsoft.OperationalInsights/workspaces/analytics
-        - Other : Search
-
-    - Microsoft.OperationalInsights/workspaces/query
-        - Read : Query Data in Workspace
-
-    - Microsoft.OperationalInsights/workspaces/tables/query
-        - Read : Query workspace table data
-
-1. Klicken Sie auf **Überprüfen + erstellen**.
-1. Wählen Sie **Erstellen**, und wählen Sie dann **Ok**.
-1. Suchen Sie in der oberen Suchleiste nach **`Resource groups`** und wählen Sie **rg_eastus_soc**.
-1. Öffnen Sie den Log Analytics-Arbeitsbereich **law-sentinel**.
-1. Erweitern Sie im linken Navigationsbereich **Einstellungen** und wählen Sie **Tabellen**.
-1. Suchen Sie nach **`Cisco_Umbrella_dns_CL`**.
-1. Klicken Sie auf die Ellipsen (...), wählen Sie **Zugriffssteuerung (IAM)**.
-1. Wählen Sie **Hinzufügen** > **Rollenzuweisung hinzufügen**.
-1. Suchen Sie nach **`NOC-CiscoUmbrellaCL-Read`** und wählen Sie die benutzerdefinierte Rolle.
-1. Wählen Sie **Weiter** aus.
-1. Wählen Sie **Mitglieder auswählen**, suchen Sie nach **NOC**, wählen Sie es aus den Suchergebnissen aus und drücken Sie dann **Wählen**.
-1. Wählen Sie erneut **Überprüfen und zuweisen** aus.
-
-Sie haben erfolgreich ein rollenbasiertes Zugriffsmodell für die Rollenanforderungen für das Sicherheitsbetriebsteam von Contoso erstellt und eine benutzerdefinierte Rolle für das Netzwerkteam erstellt und die Rolle der spezifischen Tabelle in Ihrem Log Analytics-Arbeitsbereich zugewiesen.
+Sie haben das rollenbasierte Zugriffsmodell für die Rollenanforderungen des Sicherheitsbetriebsteams von Contoso erfolgreich erstellt.
 
 ### Aufgabe 4: Erstellen einer Arbeitsmappe
 
