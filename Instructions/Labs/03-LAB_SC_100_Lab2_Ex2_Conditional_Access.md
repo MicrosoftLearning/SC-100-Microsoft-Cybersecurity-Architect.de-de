@@ -34,12 +34,9 @@ In dieser Aufgabe erstellen Sie einen benannten Speicherort unter Verwendung der
 
 1. Melden Sie sich am Client 1 VM (LON-Sc1) als **lon-sc1\admin**-Konto an. Das Passwort sollte von Ihrem Provider für die Übung bereitgestellt werden.
 1. Öffnen Sie ein **PowerShell**-Fenster, indem Sie das Startmenü mit der rechten Maustaste auswählen und dann **Terminal** wählen.
-1. Geben Sie das folgende Cmdlet ein, um Ihre aktuelle externe IP-Adresse zu überprüfen:
-    ```powershell
-    curl ifconfig.me | Select-String -Pattern '.'
-    ```
+1. Geben Sie das folgende Cmdlet ein, um Ihre aktuelle externe IP-Adresse zu überprüfen: `Invoke-RestMethod -Uri "http://ifconfig.me/ip"`
 1. Notieren Sie sich die von Powershell zurückgegebene IP-Adresse.
-1. Öffnen Sie **Microsoft Edge**, wählen Sie die Adressleiste, navigieren Sie zu **`https://entra.microsoft.com`** und melden Sie sich beim Entra ID Portal als **MOD-Fachkraft in der IT-Verwaltung**admin@WWLxZZZZZZ.onmicrosoft.com an (wobei ZZZZZZ Ihre eindeutige Mandanten-ID ist, die Sie von Ihrem Lab-Hosting-Anbieter erhalten haben). Das Passwort der administrierenden Person sollte von Ihrem Lab-Hosting-Anbieter bereitgestellt werden.
+1. Öffnen Sie **Microsoft Edge**, wählen Sie die Adressleiste, navigieren Sie zu **`https://entra.microsoft.com`** und melden Sie sich beim Entra ID Portal als **MOD Administrator**admin@WWLxZZZZZZ.onmicrosoft.com an (wobei ZZZZZZ Ihre eindeutige Mandanten-ID ist, die Sie von Ihrem Labor-Hosting-Anbieter erhalten haben). Das Passwort der administrierenden Person sollte von Ihrem Lab-Hosting-Anbieter bereitgestellt werden.
 1. Wenn Sie aufgefordert werden, die mehrstufige Authentifizierung einzurichten, befolgen Sie die Anweisungen.
 1. Aktivieren Sie im Dialogfeld Angemeldet bleiben? das Kontrollkästchen **Dies nicht mehr anzeigen** und wählen Sie dann **Nein**.
 1. Schließen Sie das Dialogfeld zum Speichern des Kennworts, indem Sie **Nicht jetzt** wählen, um die Anmeldedaten des globalen Standardadmins nicht in Ihrem Browser zu speichern.
@@ -85,7 +82,7 @@ Da Sie eine Richtlinie für bedingten Zugriff erstellt haben, die den Zugriff au
 In einem realen Szenario würden Sie einen längeren Testzeitraum mit einer größeren, repräsentativeren Gruppe durchführen, um sicherzustellen, dass keine unvorhersehbaren Ereignisse das Ergebnis verfälschen.
 
 1. Öffnen Sie ein neues **InPrivate**-Fenster in Ihrem **Microsoft Edge**-Browser, indem Sie mit der rechten Maustaste auf das Symbol in der Taskleiste klicken und dann **Neues InPrivate-Fenster** wählen.
-1. Wählen Sie die Adressleiste, navigieren Sie zu **`https://portal.microsoft.com`** und melden Sie sich beim M365-Portal als **Allan Deyoung**alland@WWLxZZZZZZ.onmicrosoft.com an (wobei ZZZZZZ Ihre eindeutige Mandant-ID ist, die von Ihrem Anbieter für das Hosting von Übungen bereitgestellt wird). Das Passwort für die Benutzenden sollte von Ihrem Lab-Hosting-Anbieter bereitgestellt werden.
+1. Wählen Sie die Adressleiste aus, navigieren Sie zu **`https://portal.microsoft.com`** und melden Sie sich beim M365-Portal als **Allan Deyoung**alland@WWLxZZZZZZ.onmicrosoft.com an (wobei ZZZZZZ Ihre eindeutige Mandanten-ID ist, die Sie von Ihrem Lab-Hosting-Anbieter erhalten haben). Das Passwort für die Benutzenden sollte von Ihrem Lab-Hosting-Anbieter bereitgestellt werden.
 1. Aktivieren Sie im Dialogfeld Angemeldet bleiben? das Kontrollkästchen **Dies nicht mehr anzeigen** und wählen Sie dann **Nein**.
 1. Da die Anmeldung erfolgreich war, können Sie das Fenster **InPrivate** schließen.
 1. Wechseln Sie zurück zu Ihrem Edge-Browserfenster, wo Sie immer noch beim Entra ID-Portal **https://entra.microsoft.com** angemeldet sein sollten.
